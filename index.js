@@ -79,7 +79,7 @@ async function run() {
         //get orders by email 
         app.get('/orders', verifyJWT, async (req, res) => {
             const decoded = req.decoded;
-            if (decoded.email !== req.query.email) {
+            if (decoded?.email !== req.query?.email) {
                 res.status(403).send({ message: 'unauthorized access' })
             }
 
